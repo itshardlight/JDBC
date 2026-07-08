@@ -94,7 +94,7 @@ public class moduleAttendance {
         try {
             Connection con = DBConnection.getConnection();
             int StudentCode = Input.getInt("Enter Student Code To Delete:");
-            String query = "DELETE FROM Attendance WHERE Students = (?) ";
+            String query = "DELETE FROM Attendance WHERE StudentCode = (?) ";
             PreparedStatement prestmt = con.prepareStatement(query);
             prestmt.setInt(1, StudentCode);
 
