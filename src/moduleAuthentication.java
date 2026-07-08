@@ -11,7 +11,7 @@ public class moduleAuthentication {
     public static void main() {
         Scanner sc = new Scanner(System.in);
         if (login()) {
-            moduleStudent.menu();
+            moduleMenu.menu();
         } else {
             System.out.println("Enter 1: Forget Pass");
             System.out.println("Enter 0: Exit");
