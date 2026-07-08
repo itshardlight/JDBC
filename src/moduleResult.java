@@ -7,19 +7,39 @@ import com.mysql.cj.protocol.Resultset;
 import db.DBConnection;
 import utils.Input;
 
-public class moduleCourse {
+public class moduleResult {
     public static void main(String[] args) {
-        show();
+        add();
 
     }
 
     public static void add() {
         try {
             Connection con = DBConnection.getConnection();
-            String CourseName = Input.getString("Enter Course Name:");
-            String query = "INSERT INTO Course (CourseName) VALUES (?)";
+            int StudentId = Input.getInt("Enter Student ID:");
+            int Science = Input.getInt("Enter Marks Science:");
+            int English = Input.getInt("Enter Marks English:");
+            int Nepali = Input.getInt("Enter Marks Nepali:");
+            int Computer = Input.getInt("Enter Marks Computer:");
+            int HPE = Input.getInt("Enter Marks HPE:");
+            int Maths = Input.getInt("Enter Marks Maths:");
+            int Account = Input.getInt("Enter Marks Account:");
+            int Social = Input.getInt("Enter Marks Social:");
+            int TotalMarks = Science + English + Nepali + Computer + HPE + Maths + Account + Social;
+            double Percentage = (TotalMarks / 8) * 100;
+            String query = "INSERT INTO Result (StudentCode,Science,English,Nepali,Computer,HPE,Maths,Account,Social,TotalMarks,Percentage) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement prestmt = con.prepareStatement(query);
-            prestmt.setString(1, CourseName);
+            prestmt.setInt(1, StudentId);
+            prestmt.setInt(2, Science);
+            prestmt.setInt(3, English);
+            prestmt.setInt(4, Nepali);
+            prestmt.setInt(5, Computer);
+            prestmt.setInt(6, HPE);
+            prestmt.setInt(7, Maths);
+            prestmt.setInt(8, Account);
+            prestmt.setInt(9, Social);
+            prestmt.setInt(10, TotalMarks);
+            prestmt.setDouble(11, 20);
 
             int rows = prestmt.executeUpdate();
 
