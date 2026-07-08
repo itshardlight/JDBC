@@ -9,7 +9,8 @@ import utils.Input;
 
 public class moduleResult {
     public static void main(String[] args) {
-        add();
+
+        show();
 
     }
 

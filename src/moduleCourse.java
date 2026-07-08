@@ -10,7 +10,7 @@ import utils.Input;
 public class moduleCourse {
     public static void main(String[] args) {
         show();
-
+        del();
     }
 
     public static void add() {
