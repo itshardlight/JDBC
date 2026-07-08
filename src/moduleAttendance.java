@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Map;
 
 import com.mysql.cj.protocol.Resultset;
-
 import db.DBConnection;
 import utils.Input;
 
@@ -44,6 +43,7 @@ public class moduleAttendance {
             Map<Integer, String> listStudent = fetch();
             Connection con = DBConnection.getConnection();
             String query = "INSERT INTO Attendance (StudentCode,Status) VALUES (?,?)";
+
             PreparedStatement prestmt = con.prepareStatement(query);
             for (Map.Entry<Integer, String> entry : listStudent.entrySet()) {
                 prestmt.setInt(1, entry.getKey());

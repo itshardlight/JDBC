@@ -1,5 +1,7 @@
 package utils;
 
+import utils.Validator;
+
 import java.util.Scanner;
 
 public class Input {
@@ -14,6 +16,8 @@ public class Input {
 
     public static String getString(String print) {
         System.out.print(print);
-        return sc.nextLine();
+        String input = sc.nextLine();
+        input = Validator.capitalize(input);
+        return input;
     }
 }
