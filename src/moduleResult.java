@@ -25,8 +25,8 @@ public class moduleResult {
             int Maths = Input.getInt("Enter Marks Maths:");
             int Account = Input.getInt("Enter Marks Account:");
             int Social = Input.getInt("Enter Marks Social:");
-            int TotalMarks = Science + English + Nepali + Computer + HPE + Maths + Account + Social;
-            double Percentage = (TotalMarks / 8) * 100;
+            double TotalMarks = Science + English + Nepali + Computer + HPE + Maths + Account + Social;
+            double Percentage = (TotalMarks / 800) * 100;
             String query = "INSERT INTO Result (StudentCode,Science,English,Nepali,Computer,HPE,Maths,Account,Social,TotalMarks,Percentage) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement prestmt = con.prepareStatement(query);
             prestmt.setInt(1, StudentId);
@@ -38,13 +38,13 @@ public class moduleResult {
             prestmt.setInt(7, Maths);
             prestmt.setInt(8, Account);
             prestmt.setInt(9, Social);
-            prestmt.setInt(10, TotalMarks);
-            prestmt.setDouble(11, 20);
+            prestmt.setDouble(10, TotalMarks);
+            prestmt.setDouble(11, Percentage);
 
             int rows = prestmt.executeUpdate();
 
             if (rows > 0) {
-                System.out.println("Course Added Successfully");
+                System.out.println("Result Added Successfully");
                 con.close();
             }
 
