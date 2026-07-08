@@ -1,6 +1,7 @@
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.Scanner;
 
 import com.mysql.cj.protocol.Resultset;
 
@@ -10,8 +11,46 @@ import utils.Input;
 public class moduleStudent {
     public static void main(String[] args) {
         show();
-        del();
+        add();
 
+    }
+
+    public static void menu() {
+        Boolean loop = true;
+        Scanner sc = new Scanner(System.in);
+        while (loop) {
+            System.out.println("--------------------------");
+            System.out.println("Enter 1: Show Student");
+            System.out.println("Enter 2: Add Student");
+            System.out.println("Enter 3: Delete Student");
+            System.out.println("Enter 4: Update Student");
+            System.out.println("Enter 0: Exit");
+            System.out.println("--------------------------");
+
+            int page = sc.nextInt();
+            sc.nextLine();
+            switch (page) {
+                case 0:
+                    loop = false;
+                    break;
+                case 1:
+                    show();
+                    break;
+                case 2:
+                    add();
+                    break;
+                case 3:
+                    del();
+                    break;
+                case 4:
+                    update();
+                    break;
+                default:
+                    loop = false;
+                    break;
+
+            }
+        }
     }
 
     public static void add() {
